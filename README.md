@@ -215,7 +215,3 @@ http://localhost:4200
 - Add unit and integration tests.
 - Add a seed database script for local development.
 - Consolidate Angular routes into `app-routing.module.ts`.
-
-## License
-
-No license file is currently included. Add a license before publishing or distributing the project.
