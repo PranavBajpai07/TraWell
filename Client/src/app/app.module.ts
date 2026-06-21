@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -37,30 +36,6 @@ import { ViewBookingGuestComponent } from './view-booking-guest/view-booking-gue
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
-
-
-const routes: Routes = [
-  { path: '', component: SearchComponent },
-  { path: 'index', component: SearchComponent },
-  { path: 'searchresults', component: SearchResultsComponent},
-  { path: 'bookingdetails', component: BookingDetailsComponent},
-  { path: 'signup', component: SignUpComponent},
-  { path: 'signin', component: SignInComponent},
-  { path: 'signout', component: SignOutComponent} ,
-  { path: 'payment', component: PaymentPageComponent},
-  { path: 'viewbooking', component: ViewBookingComponent},
-  { path: 'errorpage', component: ErrorPageComponent}, 
-  { path: 'viewbookingguest', component: ViewBookingGuestComponent},
-  { path: 'dashboard', component: UserDashBoardComponent , children: [
-    {path: 'profile', component: UserProfileComponent},
-    {path: 'wallet', component: UserWalletComponent},
-    {path: 'changePassword', component: ChangePasswordComponent},
-    {path: '', redirectTo: '/dashboard/profile', pathMatch: 'full'}
-  ]},
-  { path: '**', component: PageNotFoundComponent}
-   
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +62,6 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     FormsModule, 
     ReactiveFormsModule,
     HttpClientModule
