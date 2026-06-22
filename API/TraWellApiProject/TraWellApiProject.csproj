@@ -279,4 +279,11 @@
   </Target>
   -->
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <Target Name="CopyRoslynCompilerToBin" AfterTargets="Build">
+    <ItemGroup>
+      <RoslynCompilerRuntimeFiles Include="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\**\*.*" />
+    </ItemGroup>
+    <MakeDir Directories="$(MSBuildProjectDirectory)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynCompilerRuntimeFiles)" DestinationFiles="@(RoslynCompilerRuntimeFiles->'$(MSBuildProjectDirectory)\bin\roslyn\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
 </Project>
